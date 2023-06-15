@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import {useEffect} from 'react'
 import './App.css';
+import './assets/css/all.css';
+import './assets/css/Auth.css';
+import './assets/css/Header.css';
+import AppRouter from './router/AppRouter';
+import { useSelector, useDispatch } from 'react-redux';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const dispatch = useDispatch();
+  const state = useSelector(state => state.authReducer);
+  
+  const timeout = () => {
+    setTimeout(() => {
+      console.log("Token telah berakhir")
+      dispatch({
+        type: 'SET_LOGOUT'
+      })
+
+    }, state.expires)
+  }
+
+  useEffect(() => {
+    timeout() 
+  }, [])
+  return  <AppRouter/>
 }
 
 export default App;
