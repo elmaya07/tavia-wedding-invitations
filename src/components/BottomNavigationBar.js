@@ -6,9 +6,7 @@ import SpaceDashboardOutlinedIcon from '@mui/icons-material/SpaceDashboardOutlin
 import MaleOutlinedIcon from '@mui/icons-material/MaleOutlined';
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 import PhotoSizeSelectActualOutlinedIcon from '@mui/icons-material/PhotoSizeSelectActualOutlined';
-import MarkUnreadChatAltOutlinedIcon from '@mui/icons-material/MarkUnreadChatAltOutlined';
-import {Navigate} from 'react-router-dom';
-import cover from '../assets/images/nav-icon/more.png';
+import MarkUnreadChatAltOutlinedIcon from '@mui/icons-material/MarkUnreadChatAltOutlined'; 
 
 export default function BottomNavigationBar(props) {
     const [value, setValue] = React.useState(0);
@@ -20,17 +18,7 @@ export default function BottomNavigationBar(props) {
 
     React.useEffect(()=>{
       console.log(value)
-      if(value==0){
-        executeScroll1();       
-      }else if(value==1){
-        executeScroll2();
-      }else if(value==2){
-        executeScroll3();
-      }else if(value==3){
-        executeScroll4();
-      }else if(value==4){
-        executeScroll5();
-      }
+    
     })
   
     return (
@@ -40,7 +28,18 @@ export default function BottomNavigationBar(props) {
           showLabels
           value={value}
           onChange={(event, newValue) => {
-            setValue(newValue);            
+            setValue(newValue);   
+            if(newValue===0){
+              executeScroll1();       
+            }else if(newValue===1){
+              executeScroll2();
+            }else if(newValue===2){
+              executeScroll3();
+            }else if(newValue===3){
+              executeScroll4();
+            }else if(newValue===4){
+              executeScroll5();
+            }         
           }}
         >
           <BottomNavigationAction label={<small>{'Cover'}</small>} icon={<SpaceDashboardOutlinedIcon />} />
@@ -53,5 +52,4 @@ export default function BottomNavigationBar(props) {
       </Box>
     );
   }
-  const IconBarNav = (props)=>  <img style={{width:'70%',height:'70%',margin:'0px'}} src={props.img}/>;
-  const IconBarNavMoment = (props)=>  <img style={{width:'40%',height:'40%',margin:'0px'}} src={props.img}/>;
+  

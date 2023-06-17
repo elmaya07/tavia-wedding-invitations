@@ -22,15 +22,20 @@ export default function Index(){
     // executeScroll1();
     const observer = new IntersectionObserver((entries)=>{
       const entry =  entries[0];
-      setVis(entry.isIntersecting)      
+      setVis(entry.isIntersecting)   
+     
     })
-    observer.observe(myRef1.current)
-        // test development 
+    observer.observe(myRef1.current) 
+    console.log(myRef1.current) 
+    console.log(myRef2.current)   
   },[])
 
   return(
     <div className="box-content">
-       <ContentMobile vis={vis} myRef1={myRef1} myRef2={myRef2} myRef3={myRef3} myRef4={myRef4} myRef5={myRef5}/>
+      
+       <ContentMobile vis={vis} myRef1={myRef1} myRef2={myRef2} myRef3={myRef3} myRef4={myRef4} myRef5={myRef5}>
+       <Navbar/>
+        </ContentMobile>
        <ContentDesktop/>
       
        <div className="mobile" style={{background:'white',height:'6%'}}>
@@ -66,7 +71,7 @@ function ContentMobile(props){
   return(
     <Container fluid className="front-bg-mobile">    
     <Row className="d-flex flex-row justify-content-center h-100">
-      <CoverView myRef1={props.myRef1} />
+      <CoverView Header={props.children} myRef1={props.myRef1} />
       <BridgeRoom myRef2={props.myRef2}/>
       <MapsView myRef3={props.myRef3} />
       <MomentsView myRef4={props.myRef4} />
@@ -115,5 +120,15 @@ const MoreView = (props)=>{
      </Row>         
    </Col> 
   
+  )
+}
+
+function Navbar(){
+  return(
+    <Row >
+      <Col style={{color:'white',background:'black',lineHeight:'50px',position:'fixed',zIndex:10000}}>
+      MNTN
+      </Col>
+    </Row>
   )
 }

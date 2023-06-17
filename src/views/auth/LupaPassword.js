@@ -1,10 +1,10 @@
  import {useState} from 'react';
-import {Container,Row,Col,Form,Button,Alert,InputGroup } from 'react-bootstrap/';
+import {Container,Row,Col,Form,Button,Alert } from 'react-bootstrap/';
 import Navbar  from '../../components/Navbar';
 import Grafik from '../../components/Grafik';
 import {Link} from 'react-router-dom';
 import {useSelector,useDispatch} from 'react-redux';
-import {gantiPasswordActions,setReset} from '../../services/auth/actions';
+import {gantiPasswordActions} from '../../services/auth/actions';
 
 export default function LupaPassword(){
 	const [email,setEmail] = useState('');
@@ -19,7 +19,7 @@ export default function LupaPassword(){
     }, 2000)
 })
 	const gantiPassword = ()=>{
-		if(email=='') return false;
+		if(email==='') return false;
 		setLoginRef(true)
 		dispatch(gantiPasswordActions(email));
 		setTimeout(()=>{
@@ -43,7 +43,7 @@ export default function LupaPassword(){
 		 	 	<Row className="d-flex justify-content-center mt-4">		 	 		
 		 		 	<Col lg={4}>
 
-		 		 	{state.msg !== "" && (<Alert variant={state.statusCode==200? 'success' : 'danger'}>{state.msg }</Alert>)}
+		 		 	{state.msg !== "" && (<Alert variant={state.statusCode===200? 'success' : 'danger'}>{state.msg }</Alert>)}
 
 		 		 	<center><p style={{color:'#c6af96'}}>Masukan email untuk mengganti password baru, pastikan email sudah terdaftar di database</p></center>
 		 		 	<br/>

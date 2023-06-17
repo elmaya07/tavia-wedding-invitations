@@ -7,14 +7,11 @@ import Auth from "../views/auth/Auth";
 import Profile from "../views/auth/Profile";
 import GantiPassword from "../views/auth/GantiPassword";
 import LupaPassword from "../views/auth/LupaPassword";
+import Snowfall from 'react-snowfall'
 
 // front
 import FrontLayout from "../views/themes/layouts/FrontLayout";
 import Index from "../views/themes/01/Index";
-
-
-
-
 
 export default function AppRouter() {
 
@@ -64,7 +61,14 @@ function Verif() {
   )
 }
 
-const Home = () =><h3>Home</h3>
+function Home(){
+  return(
+    <div style={{ height: 400, width: 400, background: '#282c34', position: 'relative' }}>
+    <Snowfall />
+  </div>
+  
+  )
+}
 
 
 function VerifSuccess() {
