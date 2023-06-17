@@ -126,7 +126,7 @@ const MoreView = (props)=>{
 function Navbar(){
   return(
     <Row >
-      <Col style={{color:'white',background:'black',lineHeight:'50px',position:'fixed',zIndex:10000}}>
+      <Col style={{color:'white',background:'black',lineHeight:'50px',position:'fixed',zIndex:10000,width:'100%',left:0}}>
       MNTN
       </Col>
     </Row>

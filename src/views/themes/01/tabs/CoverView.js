@@ -14,20 +14,13 @@ const CoverView = (props) => {
   }, []);
   
   return (
-    <Col ref={props.myRef1} xs={12} className=" h-100" style={{position:'relative', height: '94%', backgroundImage: `url(${image})`, backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%', overflow: 'auto ' }}>
-    
-    <Link
-    activeClass="active"
-    to="section1"
-    spy={true}
-    smooth={true}
-    offset={-70}
-    duration={500}
->
-  {props.Header}
-  </Link>  <Row className="h-100 w-100 " data-aos={props.vis == true ? "fade-right" : "fade-right"}>
-        <Snowfall snowflakeCount={20} />
+    <>
+    {props.Header}
+    <Col ref={props.myRef1} xs={12} className="d-flex justify-content-center align-items-start h-100" style={{position:'relative', height: '94%', backgroundImage: `url(${image})`, backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%', overflow: 'auto ' }}>
+   <Row className="h-100 w-100 " data-aos={props.vis == true ? "fade-right" : "fade-right"}>
+      
         <Col xs={12} className="h-100 w-100 d-flex flex-column justify-content-start align-items-center">
+        <Snowfall snowflakeCount={20} />
           <Row className="d-flex flex-column flex-2 align-items-center h-100 w-100 ">
             <Col className="d-flex flex-column flex-1 justify-content-center pt-5 ">
             <span data-aos="fade-up" className="wedding-of">THE WEDDING OF</span>
@@ -51,6 +44,8 @@ const CoverView = (props) => {
         </Col>
       </Row>
     </Col>
+    </>
+
   );
 }
 
